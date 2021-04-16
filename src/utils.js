@@ -9,7 +9,14 @@ function getDefaultFilename(filename) {
 }
 
 function getDefaultChunkFilename(chunkFilename) {
-  return chunkFilename.replace(/\.([a-z]+)(\?.+)?$/i, ".worker.$1$2");
+  try  {
+    return typeof chunkFilename === 'string' ?
+    chunkFilename.replace(/\.([a-z]+)(\?.+)?$/i, ".worker.$1$2") : 
+    String(chunkFilename).replace(/\.([a-z]+)(\?.+)?$/i, ".worker.$1$2");
+  }catch(_)
+  {
+    return chunkFilename;
+  }
 }
 
 function getExternalsType(compilerOptions) {
