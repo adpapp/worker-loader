@@ -31,8 +31,7 @@
     "pretest": "npm run lint",
     "test": "npm run test:coverage",
     "prepare": "npm run build",
-    "release": "standard-version",
-    "postinstall": "cd ./node_modules/worker-loader && npm install && npm run build"
+    "release": "standard-version"
   },
   "files": [
     "dist"
